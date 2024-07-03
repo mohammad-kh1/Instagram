@@ -36,6 +36,13 @@
                 </ul>
             </section>
 
+            {{--     Posts       --}}
+
+            <section class="mt-5 space-y-4 p-2">
+
+                <livewire:post.item />
+
+            </section>
         </aside>
 
         <aside class="lg:col-span-4 hidden lg:block p-4">
