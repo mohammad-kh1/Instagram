@@ -21,5 +21,6 @@ export default {
         theme: 'light', // or 'dark'
     },
 
-    plugins: [forms , require('daisyui')],
+    plugins: [forms , require('daisyui') ,require('tailwind-scrollbar-hide')
+    ],
 };
