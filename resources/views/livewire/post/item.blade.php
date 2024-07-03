@@ -5,7 +5,7 @@
 
     <div class="grid grid-cols-7 w-full gap-2">
         <div class="col-span-5 ">
-            <h5 class="font-semibold truncate text-sm">{{ fake()->name  }}</h5>
+            <h5 class="font-semibold truncate text-sm">{{  $post->user->name  }}</h5>
         </div>
         <div class="col-span-2 flex text-right justify-end">
             <button class="text-gray-500 ml-auto">
@@ -41,15 +41,26 @@
             <!-- Additional required wrapper -->
             <div x-cloak class="swiper-wrapper">
                 <!-- Slides -->
-                <div class="swiper-slide"><x-video /></div>
-                <div class="swiper-slide"><img src="https://fastly.picsum.photos/id/12/2500/1667.jpg?hmac=Pe3284luVre9ZqNzv1jMFpLihFI6lwq7TPgMSsNXw2w" class="w-[500px] w-full block object-scale-down" alt=""></div>
-                <div class="swiper-slide"><x-video /></div>
+                @foreach($post->media as $file)
+                    <li class="swiper-slide">
+                    @switch($file->mime)
+                        @case("video")
+                            <x-video source="{{ $file->url  }}" />
+                            @break
+                        @case("image")
+                            <img src="{{ $file->url  }}" class="w-[500px] w-full block object-scale-down" alt="">
+                            @break
+                    @endswitch
+                    </li>
+
+                @endforeach
                 ...
             </div>
             <!-- If we need pagination -->
             <div class="swiper-pagination"></div>
 
             <!-- If we need navigation buttons -->
+            @if(count($post->media) > 1)
 {{--            PREV    --}}
             <div class="swiper-button-prev absolute top-1/2 z-10 p-2">
                 <div class="bg-white/95 border p-1 rounded-full text-gray-900">
@@ -66,6 +77,8 @@
                     </svg>
                 </div>
             </div>
+
+            @endif
 
             <!-- If we need scrollbar -->
             <div class="swiper-scrollbar"></div>
@@ -110,8 +123,8 @@
 {{-- naem and commnets --}}
     <div class="flex text-sm gap-2 font-medium text-black">
         <p>
-            <strong class="font-bold ">{{ fake()->name  }}</strong>
-            this is test text for views this is test text for views this is test text for views this is test text for views this is test text for views
+            <strong class="font-bold ">{{ $post->user->name }}</strong>
+            {{ $post->description  }}
         </p>
     </div>
 {{--  view post modal  --}}
