@@ -20,7 +20,56 @@
 {{-- main  --}}
 <main>
     <div class="my-2">
-        <x-video />
+        <!-- Slider main container -->
+        <div
+            x-init="
+                new Swipper($el,{
+                        modules: [Navigation, Pagination],
+                        loop:true,
+
+                        pagination: {
+                            el: '.swiper-pagination',
+                        },
+
+                        navigation: {
+                            nextEl: '.swiper-button-next',
+                            prevEl: '.swiper-button-prev',
+                        },
+                });
+            "
+            class="swiper h-[500px] border bg-white">
+            <!-- Additional required wrapper -->
+            <div x-cloak class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide"><x-video /></div>
+                <div class="swiper-slide"><img src="https://fastly.picsum.photos/id/12/2500/1667.jpg?hmac=Pe3284luVre9ZqNzv1jMFpLihFI6lwq7TPgMSsNXw2w" class="w-[500px] w-full block object-scale-down" alt=""></div>
+                <div class="swiper-slide"><x-video /></div>
+                ...
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+{{--            PREV    --}}
+            <div class="swiper-button-prev absolute top-1/2 z-10 p-2">
+                <div class="bg-white/95 border p-1 rounded-full text-gray-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-6 h-5 w-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                    </svg>
+                </div>
+            </div>
+{{--            NEXT    --}}
+            <div class="swiper-button-next absolute right-0  top-1/2 z-10 p-2">
+                <div class="bg-white/95 border p-1 rounded-full text-gray-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-6 h-5 w-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                    </svg>
+                </div>
+            </div>
+
+            <!-- If we need scrollbar -->
+            <div class="swiper-scrollbar"></div>
+        </div>
     </div>
 </main>
 
