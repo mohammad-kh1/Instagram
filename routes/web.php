@@ -3,9 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name("home");
+Route::get("/" , \App\Livewire\Home::class)->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
