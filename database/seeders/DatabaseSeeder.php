@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Comment;
 use App\Models\Post;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -21,8 +22,13 @@ class DatabaseSeeder extends Seeder
 //            'email' => 'test@example.com',
 //        ]);
 
-        Post::factory(15)->create(["type"=>"reel"]);
-        Post::factory(15)->create(["type"=>"post"]);
+        Post::factory(15)->hasComments(10)->create(["type"=>"reel"]);
+        Post::factory(15)->hasComments(10)->create(["type"=>"post"]);
 
+        //
+        Comment::limit(50)->each(function($comment){
+            $comment::factory(rand(1,5))->isReply($comment->commentable)->create(["parent_id" => $comment->id]);
+        });
     }
+
 }

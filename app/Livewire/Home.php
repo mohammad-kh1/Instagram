@@ -19,7 +19,7 @@ class Home extends Component
 
     function __construct()
     {
-        $this->posts = Post::latest()->get();
+        $this->posts = Post::latest()->with("comments")->get();
     }
 
     #[On("post-created")]
