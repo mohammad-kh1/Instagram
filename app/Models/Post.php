@@ -27,6 +27,10 @@ class Post extends Model
         return $this->morphMany(Media::class , "mediable");
     }
 
+    function comments()
+    {
+        return $this->morphMany(Comment::class , "commentable")->with("replies");
+    }
 
 
 }

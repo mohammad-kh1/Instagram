@@ -35,11 +35,6 @@ class Modal extends ModalComponent
     {
         return <<<'BLADE'
         <main class="bg-white h-[calc(100vh_-_3.5rem)] md:h-[calc(100vh_-_5rem)] flex flex-col border gap-y-4 px-5">
-            <header class="w-full py-2">
-                <div class="flex justify-end">
-                    <button type="button" wire:click="$dispatch('closeModal')" class="xl font-bold">X</button>
-                </div>
-            </header>
 
             <livewire:post.view.item :post="$this->post" />
         </main>
