@@ -35,19 +35,19 @@ class MediaFactory extends Factory
         {
             case "post":
                 $urls = [
-                    "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+                    "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4",
                     "https://fastly.picsum.photos/id/13/367/267.jpg?hmac=PlowotpQVsKI5u9zmCSxPrAdWuH7CqFxaqGgk5IbLtk" ,
-                    "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" ,
+                    "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4" ,
                     "https://fastly.picsum.photos/id/13/367/267.jpg?hmac=PlowotpQVsKI5u9zmCSxPrAdWuH7CqFxaqGgk5IbLtk",
 
                 ];
                 return $this->faker->randomElement($urls);
             case "reel":
                 $urls = [
-                    "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+                    "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4",
                     "https://fastly.picsum.photos/id/13/367/267.jpg?hmac=PlowotpQVsKI5u9zmCSxPrAdWuH7CqFxaqGgk5IbLtk" ,
                     "https://fastly.picsum.photos/id/13/367/267.jpg?hmac=PlowotpQVsKI5u9zmCSxPrAdWuH7CqFxaqGgk5IbLtk" ,
-                    "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+                    "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4",
                 ];
                 return $this->faker->randomElement($urls);
             default:
@@ -57,7 +57,7 @@ class MediaFactory extends Factory
     }
 
     public function getMime($url){
-        if(str()->contains($url , "gtv-videos-bucket")){
+        if(str()->contains($url , "big_buck_bunny")){
             return "video";
         }else if(str()->contains($url , "fastly.picsum.photos")){
             return "image";

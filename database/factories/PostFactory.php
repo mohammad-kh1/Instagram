@@ -20,7 +20,7 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            "user_id" => User::inRandomOrder()->first()->id,
+            "user_id" => User::factory(),
             "description" => $this->faker->text(255),
             "location" => $this->faker->city,
             "hide_like_view" => $this->faker->boolean(),
@@ -31,7 +31,7 @@ class PostFactory extends Factory
 
     public function configure()
     {
-        return $this->afterCreating(function(Post  $post){
+        return $this->afterCreating(function(Post $post){
             if($post->type == "media"){
                 Media::factory()->reel()->create(["mediable_type" => get_class($post) , "mediable_id" => $post->id]);
             }else{

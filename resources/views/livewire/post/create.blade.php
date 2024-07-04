@@ -13,7 +13,7 @@
             </button>
         </div>
     </header>
-{{--Meida--}}
+{{--Media--}}
     <main class="grid grid-cols-12 gap-3 h-full w-full overflow-hidden">
         <aside class="lg:col-span-7 m-auto items-center w-full overflow-scroll">
 
