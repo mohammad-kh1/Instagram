@@ -11,6 +11,12 @@ class Home extends Component
 
     public $posts;
 
+    #[On("closeModal")]
+    public function reverUrl()
+    {
+        $this->js("history.replaceState({},'','/')");
+    }
+
     function __construct()
     {
         $this->posts = Post::latest()->get();

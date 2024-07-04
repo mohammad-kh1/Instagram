@@ -76,7 +76,7 @@ class Create extends ModalComponent
             $this->dispatch("close");
 
             #dispatch event for post created
-        $this->dispatch("post-created" , $this->post->id);
+        $this->dispatch("post-created" , $post->id);
         }
     }
 
