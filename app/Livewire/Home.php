@@ -11,15 +11,39 @@ class Home extends Component
 
     public $posts;
 
+    public $canLoadMore;
+    public $perPageInrements=5;
+    public $perPage=10;
+
+
     #[On("closeModal")]
     public function reverUrl()
     {
         $this->js("history.replaceState({},'','/')");
     }
 
+    public function loadMore()
+    {
+        if(!$this->canLoadMore){
+            return null;
+        }
+
+        #increment page
+        $this->perPage +=$this->perPageInrements;
+
+        #load posts
+        $this->loadPosts();
+    }
+
+    function loadPosts(){
+        $this->posts = Post::with("comments.replies")->latest()->take($this->perPage)->get();
+        $this->canLoadMore=(count($this->posts) >= $this->perPage );
+
+    }
+
     function __construct()
     {
-        $this->posts = Post::latest()->with("comments")->get();
+        $this->loadPosts();
     }
 
     #[On("post-created")]
