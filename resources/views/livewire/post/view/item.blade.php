@@ -111,13 +111,17 @@
             {{--  view post modal  --}}
             <button class="text-slate-500/90 text-sm font-medium">View all {{   $post->comments->count()  }} comments</button>
             {{--  leave comment  --}}
-            <form x-data="{inputText:''}" class="grid grid-cols-12 items-center w-full">
+            <form
+                wire:key="{{time()}}"
+                x-data="{body:@entangle('body')}"
+                @submit.prevent="$wire.addComment()"
+                class="grid grid-cols-12 items-center w-full">
                 @csrf
 
-                <input x-model="inputText" type="text" placeholder="Add a comment" class="border-0 col-span-10 placeholder:text-sm outline-none focus:outline-none px-0 rounded-l hover:roing-0
+                <input x-model="body" type="text" placeholder="Add a comment" class="border-0 col-span-10 placeholder:text-sm outline-none focus:outline-none px-0 rounded-l hover:roing-0
         focus:ring-0">
                 <div class="col-span-1 ml-auto flex justify-end text-right">
-                    <button x-cloak x-show="inputText.length > 0" class="text-sm font-semibold flex justify-end text-blue-500">
+                    <button type="submit" x-cloak x-show="body.length > 0" class="text-sm font-semibold flex justify-end text-blue-500">
                         Post
                     </button>
                 </div>
