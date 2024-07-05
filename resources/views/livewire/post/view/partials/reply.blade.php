@@ -7,9 +7,6 @@
                                 <span class="font-bold text-sm">
                                     {{$reply->user->name}}
                                 </span>
-                <span class="font-bold">
-                                        @ {{ $reply->parent->user->name  }}
-                                    </span>
             <p class="mx-2 text-black">
                 {{$reply->body}}
             </p>
@@ -26,9 +23,9 @@
         </div>
         {{--                        footer--}}
         <div class="col-span-7 flex gap-2 text-sm items-center text-gray-700">
-            <span>{{ $comment->created_at->diffForHumans()  }}</span>
+            <span>{{ $reply->created_at->diffForHumans()  }}</span>
             <span class="font-bold ">123 likes</span>
-            <span class="font-semibold">Reply</span>
+            <span wire:click="setParent({{$reply->id}})" class="font-semibold cursor-pointer">Reply</span>
         </div>
     </div>
 
