@@ -9,9 +9,15 @@ use Livewire\Component;
 class Item extends Component
 {
 
-    public $post;
+    public Post $post;
 
     public $body;
+
+    function togglePostLike()
+    {
+            abort_unless(auth()->check() , 401);
+            auth()->user()->toggleLike($this->post);
+    }
 
     function addComment()
     {

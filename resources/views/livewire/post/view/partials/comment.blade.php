@@ -1,5 +1,5 @@
 <div class="flex items-center gap-3 py-2">
-    <x-avatar src="https://picsum.photos/seed/picsum/500/500" class="w-9 h-9" />
+    <x-avatar wire:ignore src="https://picsum.photos/seed/picsum/500/500" class="w-9 h-9" />
     <div class="grid grid-cols-7 w-full gap-2">
         {{--                        comment--}}
         <div class="col-span-6 flex flex-warp text-sm">
