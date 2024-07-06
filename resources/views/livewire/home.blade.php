@@ -77,7 +77,7 @@
 
                 <div class="flex items-center gap-2 p-2">
                     <x-avatar wire:ignore src="https://picsum.photos/seed/picsum/500/500" class="w-12 h-12" />
-                    <h4 wire:ignore>{{ fake()->name  }}</h4>
+                    <h4 wire:ignore>{{ auth()->user()->username }}</h4>
                 </div>
 
 

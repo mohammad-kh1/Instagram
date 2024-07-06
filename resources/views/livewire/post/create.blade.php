@@ -61,7 +61,7 @@
         <aside class="lg:col-span-5 h-full border-l p-3 flex gap-4 flex-col overflow-hidden overflow-y-scroll">
             <div class="flex items-center gap-2 ">
                 <x-avatar class="w-9 h-9" />
-                <h5 class="font-bold"> {{ fake()->name  }} </h5>
+                <h5 class="font-bold"> {{ auth()->user()->username  }} </h5>
             </div>
 
             <div>
