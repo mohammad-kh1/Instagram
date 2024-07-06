@@ -87,11 +87,14 @@
                     <ul class="my-2 space-y-3">
                         @foreach($suggestedUsers as $user)
                             <li class="flex items-center gap-3">
-                                <x-avatar wire:ignore src="https://picsum.photos/seed/picsum/500/500" class="w-12 h-12" />
+                                <a href="{{route('profile.home',$user->username)}}" >
+                                    <x-avatar wire:ignore src="https://picsum.photos/seed/picsum/500/500" class="w-12 h-12" />
+
+                                </a>
                                 <div class="grid grid-cols-7 w-full gap-2">
                                     <div class="col-span-5">
-                                        <h5 class="font-semibold truncate text-sm" wire:ignore>{{ $user->name  }}</h5>
-                                        <p class="text-xs truncate" wire:ignore>Followd by {{ fake()->name  }}</p>
+                                        <a href="{{route('profile.home',$user->username)}}" class="font-semibold truncate text-sm" wire:ignore>{{ $user->name  }}</a>
+                                        <p class="text-xs truncate" wire:ignore>Followed by {{ fake()->name  }}</p>
                                     </div>
 
                                     <div class="col-span-2 flex text-right justify-end">

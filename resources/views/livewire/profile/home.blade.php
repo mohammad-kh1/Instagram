@@ -1,5 +1,3 @@
-<div>
+<x-profile-layout :user="$user">
 
-
-
-</div>
+</x-profile-layout>
