@@ -9,6 +9,7 @@
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.5",
+        "overtrue/laravel-favorite": "^5.2",
         "overtrue/laravel-like": "^5.3",
         "wire-elements/modal": "^2.0"
     },
