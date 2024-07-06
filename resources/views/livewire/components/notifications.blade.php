@@ -53,7 +53,7 @@
                 <div class="col-span-7 font-medium">
                     <a href="#" > <strong>{{fake()->name}}</strong> </a>
                     <a href="#" >
-                        Commented: hello 
+                        Commented: hello
                         <span class="text-gray-400">2d</span>
                     </a>
 
