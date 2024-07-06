@@ -17,6 +17,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get("/" , \App\Livewire\Home::class)->name('home');
     Route::get("/explore" , \App\Livewire\Explore::class)->name('explore');
+    Route::get("/reels" , \App\Livewire\Reels::class)->name('reels');
 
 
     Route::get("/profile/{user}" , \App\Livewire\Profile\Home::class)->name("profile.home");

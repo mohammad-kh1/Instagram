@@ -106,7 +106,7 @@
 
 
         <li>
-            <a wire:navigate href="" class="flex items-center gap-5">
+            <a wire:navigate href="{{route("reels")}}" class="flex items-center gap-5">
 
                 <span>
 
