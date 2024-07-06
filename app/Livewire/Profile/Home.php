@@ -27,7 +27,7 @@ class Home extends Component
         if(auth()->user()->isFollowing($this->user)){
             $this->user->notify(new NewFollowerNotification(auth()->user()));
         }
-        
+
     }
     function mount($user)
     {
