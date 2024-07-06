@@ -358,8 +358,15 @@
 
         </template>
 
+        <div x-if="showNotifications">
+
+
+
+        </div>
+
         <div x-cloak x-show="showNotifications">
 
+            <livewire:components.notifications  />
 
         </div>
 
