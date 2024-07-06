@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Overtrue\LaravelFavorite\Traits\Favoriter;
+use Overtrue\LaravelFollow\Traits\Followable;
+use Overtrue\LaravelFollow\Traits\Follower;
 use Overtrue\LaravelLike\Traits\Liker;
 
 class User extends Authenticatable
@@ -14,6 +16,8 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
     use Liker;
     use Favoriter;
+    use Follower;
+    use Followable;
     /**
      * The attributes that are mass assignable.
      *

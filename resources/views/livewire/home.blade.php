@@ -45,8 +45,8 @@
                 <ul class="flex overflow-x-auto items-center gap-2 scrollbar-hide">
                     @foreach(range(1,30) as $i)
                         <li class="flex flex-col justify-center w-20 gap-1 p-2">
-                            <x-avatar story src="https://picsum.photos/seed/picsum/500/500" class="h-14 w-14" />
-                            <p class="text-xs font-medium truncate">{{  fake()->name }}</p>
+                            <x-avatar wire:ignore story src="https://picsum.photos/seed/picsum/500/500" class="h-14 w-14" />
+                            <p class="text-xs font-medium truncate" wire:ignore>{{  fake()->name }}</p>
                         </li>
                     @endforeach
                 </ul>
@@ -76,8 +76,8 @@
 
 
                 <div class="flex items-center gap-2 p-2">
-                    <x-avatar src="https://picsum.photos/seed/picsum/500/500" class="w-12 h-12" />
-                    <h4>{{ fake()->name  }}</h4>
+                    <x-avatar wire:ignore src="https://picsum.photos/seed/picsum/500/500" class="w-12 h-12" />
+                    <h4 wire:ignore>{{ fake()->name  }}</h4>
                 </div>
 
 
@@ -85,21 +85,27 @@
             <section class="mt-4">
                     <h4 class="font-bold text-gray-700/95">Suggest for you</h4>
                     <ul class="my-2 space-y-3">
-                        @foreach(range(1,10) as $index)
+                        @foreach($suggestedUsers as $user)
                             <li class="flex items-center gap-3">
-                                <x-avatar src="https://picsum.photos/seed/picsum/500/500" class="w-12 h-12" />
+                                <x-avatar wire:ignore src="https://picsum.photos/seed/picsum/500/500" class="w-12 h-12" />
                                 <div class="grid grid-cols-7 w-full gap-2">
                                     <div class="col-span-5">
-                                        <h5 class="font-semibold truncate text-sm">{{ fake()->name  }}</h5>
-                                        <p class="text-xs truncate">Followd by {{ fake()->name  }}</p>
+                                        <h5 class="font-semibold truncate text-sm" wire:ignore>{{ $user->name  }}</h5>
+                                        <p class="text-xs truncate" wire:ignore>Followd by {{ fake()->name  }}</p>
                                     </div>
 
                                     <div class="col-span-2 flex text-right justify-end">
-                                        <button class="font-bold text-blue-500 ml-auto text-small">Follow</button>
+                                        @if(auth()->user()->isFollowing($user))
+                                        <button wire:click="toggleFollow({{$user->id}})" class="font-bold text-blue-500 ml-auto text-small">Following</button>
+                                        @else
+                                            <button wire:click="toggleFollow({{$user->id}})" class="font-bold text-blue-500 ml-auto text-small">Follow</button>
+
+                                        @endif
                                     </div>
                                 </div>
                             </li>
                         @endforeach
+
                     </ul>
                 </section>
 
