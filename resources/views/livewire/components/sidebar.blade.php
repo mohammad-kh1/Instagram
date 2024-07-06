@@ -306,7 +306,7 @@
 
     <div x-show="drawer" x-cloak x-transition.origin.left
          @click.outside="drawer=false;showSearch=false;showNotifications=false"
-         class="fixed inset-y-0 left-[70px] w-96 px-4 overflow-y-scroll overflow-x-hidden shadow bg-white border rounded-r-2xl z-[50]">
+         class="fixed inset-y-0 left-[70px] w-[500px] px-4 overflow-y-scroll overflow-x-hidden shadow bg-white border rounded-r-2xl z-[50]">
 
 
 
@@ -326,30 +326,37 @@
                 </header>
 
                 <main>
-                    @if($results)
+                    @if ($results)
                         <ul class="space-y-2 overflow-x-hidden">
-                            @foreach($results as $key=>$user)
+                            @foreach ($results as $key=> $user)
                                 <li>
-                                    <a href="{{ route('profile.home',$user->username)  }}" class="flex gap-2 truncate items-center">
-                                        <x-avatar wire:ignore class="w-9 h-9 mb-auto" src="" />
+
+                                    <a href="{{route('profile.home',$user->username)}}"
+                                       class="flex gap-2 truncate items-center">
+
+                                        <x-avatar wire:ignore class="w-9 h-9 mb-auto"
+                                                  src="https://source.unsplash.com/500x500?face-{{$key}}" />
+
                                         <div class="flex flex-col">
-                                            <span class="font-bold text-sm">{{  $user->username   }}</span>
-                                            <span class="font-bold text-xl truncate">{{  fake()->sentence()  }}</span>
+                                            <span class="font-bold text-sm">{{$user->username}}</span>
+                                            <span class="font-normal text-xs truncate">{{fake()->sentence()}}</span>
+
 
                                         </div>
+
                                     </a>
+
                                 </li>
                             @endforeach
-
                         </ul>
-
                     @else
 
                         <center>
-                            No Result
+                            No results
                         </center>
 
                     @endif
+
 
                 </main>
 
@@ -358,15 +365,9 @@
 
         </template>
 
-        <div x-if="showNotifications">
-
-
-
-        </div>
-
         <div x-cloak x-show="showNotifications">
 
-            <livewire:components.notifications  />
+            <livewire:components.notifications />
 
         </div>
 
