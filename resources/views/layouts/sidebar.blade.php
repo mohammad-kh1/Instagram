@@ -27,8 +27,8 @@
 
                 <span>
 
-                    @if (request()->routeIs('Home'))
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                    @if (request()->routeIs('home'))
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-black">
                         <path
                             d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z" />
                         <path
@@ -72,12 +72,12 @@
 
 
         <li>
-            <a wire:navigate href="" class="flex items-center gap-5">
+            <a wire:navigate href="{{route('explore')}}" class="flex items-center gap-5">
 
                 <span>
 
                     @if (request()->routeIs('explore'))
-                        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        <svg class="w-6 h-6 text-black" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              viewBox="0 0 16 16">
                         <path
                             d="M15.5 8.516a7.5 7.5 0 1 1-9.462-7.24A1 1 0 0 1 7 0h2a1 1 0 0 1 .962 1.276 7.503 7.503 0 0 1 5.538 7.24zm-3.61-3.905L6.94 7.439 4.11 12.39l4.95-2.828 2.828-4.95z" />
