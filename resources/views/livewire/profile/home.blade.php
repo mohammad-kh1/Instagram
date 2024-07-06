@@ -15,6 +15,8 @@
                     @break
                 @case("image")
                     <img src="{{$cover->url}}" alt="image" class="h-full w-full object-cover">
+                    @break
+                @default
 
             @endswitch
 
