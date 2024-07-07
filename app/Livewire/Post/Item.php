@@ -21,7 +21,6 @@ class Item extends Component
             auth()->user()->toggleLike($this->post);
 
         if($this->post->user_id != auth()->id()) {
-
             if ($this->post->isLikedBy(auth()->user())) {
                 $this->post->user->notify(new PostLikedNotification(auth()->user(), $this->post));
             }
